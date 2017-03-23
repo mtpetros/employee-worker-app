@@ -27,11 +27,11 @@ module.exports = function (app) {
             skill: req.body.skill,
             rating: req.body.rating,
             availability: req.body.availability,
-           
-        }), {
-                timestamps: false
-            }        
+
+        }, {
+                timestamptimestamps: false
+            }).then(function (userData) {          
+            res.json(userData);
+        });
     });
-
-
-};
+}
