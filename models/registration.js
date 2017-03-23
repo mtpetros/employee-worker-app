@@ -1,6 +1,5 @@
 ﻿module.exports = function (sequelize, DataTypes) {
-    var Login = sequelize.define("Login", {
-
+    var User = sequelize.define("User", {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -8,6 +7,7 @@
         mode: {
             type: DataTypes.STRING,
             allowNull: false,
+            defaultValue: "Employer"
         },
         phone: {
             type: DataTypes.STRING,
@@ -31,7 +31,8 @@
         },
         skill: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
+            defaultValue: "N/A"
         },
         rating: {
             type: DataTypes.STRING,
@@ -47,7 +48,7 @@
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: DataTypes.NOW
-        }
+        },
     });
-    return Login;
+    return User;
 };
