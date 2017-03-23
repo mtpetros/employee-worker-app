@@ -1,0 +1,82 @@
+<div class="jumbotron text-center">
+    <h1 class="display-3">Registration</h1>
+    <p class="lead"></p>
+    <hr class="m-y-md">
+    <p>Register your company, so that employees can find you! Or, Register as an employee, and let employers know you are ready to work!</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">            
+
+          <div class="radio text-center">
+            <p>Register as an employer or employee:</p>
+            <label class="radio-inline"><input type="radio" name="optradio" value="employer" id="employer">Employer</label>
+            <label class="radio-inline"><input type="radio" name="optradio" value="employee" id="employee" disabled>Employee</label>
+          </div>
+
+          <hr>
+            
+          <form action="/register" class="text-center hidden" id="employer-form"> 
+            <div class="form-group row">
+              <label for="example-text-input" class="col-2 col-form-label">Company Name</label>
+              <div class="col-10">
+                <input class="form-control" type="text">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="example-search-input" class="col-2 col-form-label">Phone Number</label>
+              <div class="col-10">
+                <input class="form-control" placeholder="(123) 456-7890" type="search">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="example-search-input" class="col-2 col-form-label">Email</label>
+              <div class="col-10">
+                <input class="form-control" type="search">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="example-search-input" class="col-2 col-form-label">Street</label>
+              <div class="col-10">
+                <input class="form-control" type="search">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="example-search-input" class="col-2 col-form-label">City</label>
+              <div class="col-10">
+                <input class="form-control" type="search">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="example-search-input" class="col-2 col-form-label">State</label>
+              <div class="col-10">
+                <input class="form-control" type="search">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="example-search-input" class="col-2 col-form-label">Zipcode</label>
+              <div class="col-10">
+                <input class="form-control" type="search">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="example-search-input" class="col-2 col-form-label">What skills do you need? </label>
+              <div class="col-10">
+                <input class="form-control" type="search">
+              </div>
+            </div>
+            <hr>
+            <div class="radio text-center">
+              <p>Are you currently looking for employees?:</p>
+              <label class="radio-inline"><input type="radio" name="optradio" value="true" id="employer">Yes!</label>
+              <label class="radio-inline"><input type="radio" name="optradio" value="false" id="employee">No!</label>
+            </div><br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
+        </div>
+    </div>
+</div>
+
+<script src="/assets/js/registration.js"></script>
