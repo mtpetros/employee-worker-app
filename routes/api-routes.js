@@ -12,7 +12,7 @@ var db = require("../models");
 // =============================================================
 module.exports = function (app) {
 
-    //############################################################## REGISTRATION ####################
+  
     // POST route for saving a new registration
     app.post("/api/registration", function (req, res) {
         console.log(req.body);
@@ -26,7 +26,6 @@ module.exports = function (app) {
             zipCode: req.body.zipCode,
             skill: req.body.skill,
             availability: req.body.availability,
-           
 
         }, {
                 timestamps: false

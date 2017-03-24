@@ -8,6 +8,7 @@
         mode: {
             type: DataTypes.STRING,
             allowNull: false,
+            defaultValue: "Employer"
         },
         phone: {
             type: DataTypes.STRING,
@@ -31,7 +32,8 @@
         },
         skill: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
+            defaultValue: "N/A"
         },
         rating: {
             type: DataTypes.STRING,
@@ -47,7 +49,7 @@
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: DataTypes.NOW
-        }
+        },
     });
     return User;
 };
