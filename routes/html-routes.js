@@ -6,6 +6,7 @@
 // =============================================================
 var path = require("path");
 
+
 // Routes
 // =============================================================
 module.exports = function (app) {
@@ -14,16 +15,14 @@ module.exports = function (app) {
 
     // index route loads view.html
     app.get("/", function (req, res) {
-        res.sendFile(path.join(__dirname + "/../public/registration.html"));
+        res.render("index");
     });
 
-    app.get("/registration", function (req, res) {
-        res.sendFile(path.join(__dirname + "/../public/registration.html"));
+    app.get("/register", function (req, res) {
+        res.render("registration");
     });
 
-    // blog route loads blog.html
-    app.get("/employee", function (req, res) {
-        res.sendFile(path.join(__dirname + "/../public/employee.html"));
-    });
+
+        
 
 };

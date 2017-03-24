@@ -12,7 +12,7 @@ var db = require("../models");
 // =============================================================
 module.exports = function (app) {
 
-    //############################################################## REGISTRATION ####################
+  
     // POST route for saving a new registration
     app.post("/api/registration", function (req, res) {
         console.log(req.body);
@@ -25,13 +25,21 @@ module.exports = function (app) {
             city: req.body.city,
             zipCode: req.body.zipCode,
             skill: req.body.skill,
-            rating: req.body.rating,
             availability: req.body.availability,
 
         }, {
-                timestamptimestamps: false
-            }).then(function (userData) {          
-            res.json(userData);
-        });
+                timestamps: false
+            
+            
+    }).then(function (data) {
+            console.log("hey hey" + JSON.stringify(data));
+            //res.render("registered", data.values);
+        });        
     });
-}
+
+    app.get("/view/employers", function (req, res) {
+        db.EmployerTable.findAll({}).then(function (data) {
+            res.render("employertable", data);
+        });            
+    });    
+};
