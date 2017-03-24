@@ -1,5 +1,5 @@
 ﻿module.exports = function (sequelize, DataTypes) {
-    var Login = sequelize.define("Login", {
+    var User = sequelize.define("User", {
 
         name: {
             type: DataTypes.STRING,
@@ -49,5 +49,5 @@
             defaultValue: DataTypes.NOW
         }
     });
-    return Login;
+    return User;
 };
