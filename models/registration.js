@@ -3,46 +3,44 @@
 
         name: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
         },
         mode: {
             type: DataTypes.STRING,
-            allowNull: false,
-            defaultValue: "Employer"
+            allowNull: false
         },
         phone: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
         },
         email: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
         },
         street: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
         },
         city: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
         },
-        zipCode: {
+        zipcode: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
         },
         skill: {
             type: DataTypes.STRING,
             allowNull: true,
-            defaultValue: "N/A"
         },
         rating: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             defaultValue: "3"
         },
         availability: {
-            type: DataTypes.TEXT,
-            allowNull: true
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         },
         //REGISTRATION DATE SHOULD NOT BE REQUESTED FROM USER AT REGISTRATION
         regDate: {

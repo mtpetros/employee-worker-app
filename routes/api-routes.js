@@ -14,7 +14,7 @@ module.exports = function (app) {
 
   
     // POST route for saving a new registration
-    app.post("/api/registration", function (req, res) {
+    app.post("/register", function (req, res) {
         console.log(req.body);
         db.User.create({
             name: req.body.name,
@@ -23,7 +23,7 @@ module.exports = function (app) {
             email: req.body.email,
             street: req.body.street,
             city: req.body.city,
-            zipCode: req.body.zipCode,
+            zipcode: req.body.zipcode,
             skill: req.body.skill,
             availability: req.body.availability,
 
@@ -32,8 +32,11 @@ module.exports = function (app) {
             
             
     }).then(function (data) {
-            console.log("hey hey" + JSON.stringify(data));
-            //res.render("registered", data.values);
+            console.log("+++++++++++++" + data);
+            var hbsObject = {
+                employer: data
+            };
+            res.render("registered", hbsObject);
         });        
     });
 

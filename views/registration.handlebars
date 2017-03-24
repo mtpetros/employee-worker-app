@@ -17,60 +17,49 @@
 
           <hr>
             
-          <form action="/register" class="text-center hidden" id="employer-form"> 
+          <form action="/register" method="POST" class="text-center hidden" id="employer-form">
+            <input type="hidden" name="mode" value="employer"> 
             <div class="form-group row">
               <label for="example-text-input" class="col-2 col-form-label">Company Name</label>
               <div class="col-10">
-                <input class="form-control" type="text">
+                <input class="form-control" type="text" name="name">
               </div>
             </div>
             <div class="form-group row">
               <label for="example-search-input" class="col-2 col-form-label">Phone Number</label>
               <div class="col-10">
-                <input class="form-control" placeholder="(123) 456-7890" type="search">
+                <input class="form-control" placeholder="(123) 456-7890" type="text" name="phone">
               </div>
             </div>
             <div class="form-group row">
               <label for="example-search-input" class="col-2 col-form-label">Email</label>
               <div class="col-10">
-                <input class="form-control" type="search">
+                <input class="form-control" type="text" name="email">
               </div>
             </div>
             <div class="form-group row">
               <label for="example-search-input" class="col-2 col-form-label">Street</label>
               <div class="col-10">
-                <input class="form-control" type="search">
+                <input class="form-control" type="text" name="street">
               </div>
             </div>
             <div class="form-group row">
               <label for="example-search-input" class="col-2 col-form-label">City</label>
               <div class="col-10">
-                <input class="form-control" type="search">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="example-search-input" class="col-2 col-form-label">State</label>
-              <div class="col-10">
-                <input class="form-control" type="search">
+                <input class="form-control" type="text" name="city">
               </div>
             </div>
             <div class="form-group row">
               <label for="example-search-input" class="col-2 col-form-label">Zipcode</label>
               <div class="col-10">
-                <input class="form-control" type="search">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="example-search-input" class="col-2 col-form-label">What skills do you need? </label>
-              <div class="col-10">
-                <input class="form-control" type="search">
+                <input class="form-control" type="text" name="zipcode">
               </div>
             </div>
             <hr>
             <div class="radio text-center">
               <p>Are you currently looking for employees?:</p>
-              <label class="radio-inline"><input type="radio" name="optradio" value="true" id="employer">Yes!</label>
-              <label class="radio-inline"><input type="radio" name="optradio" value="false" id="employee">No!</label>
+              <label class="radio-inline"><input type="radio" name="availability" value="true">Yes!</label>
+              <label class="radio-inline"><input type="radio" name="availability" value="false"2>No!</label>
             </div><br>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
