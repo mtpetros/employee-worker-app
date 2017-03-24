@@ -35,3 +35,9 @@ db.sequelize.sync({ force: true }).then(function () {
         console.log("App listening on PORT " + PORT);
     });
 });
+
+// Handlebars
+
+var exphbs = require("express-handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
