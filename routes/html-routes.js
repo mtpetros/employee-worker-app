@@ -22,6 +22,9 @@ module.exports = function (app) {
         res.render("registration");
     });
 
+    app.get("/calendar", function (req, res) {
+        res.render("calendar");
+    });
 
         
 
