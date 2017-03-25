@@ -39,10 +39,35 @@ module.exports = function (app) {
             res.render("registered", hbsObject);
         });        
     });
-
+    // Displays employer's information to a "confirmation page"
     app.get("/view/employers", function (req, res) {
         db.EmployerTable.findAll({}).then(function (data) {
             res.render("employertable", data);
         });            
     });    
+    // Updates the availabity
+    app.put("/calendar", function (req, res) {
+        db.Post.update(
+            req.body,
+            {
+                where: {
+                    id: req.body.id
+                }
+            }).then(function (dbPost) {
+                res.json(dbPost);
+            });
+    });
+    // Gets the information from employer to display on the calendar
+    app.get("/view/calendar", function (req, res) {
+        var query = {};
+        if (req.query.id) {
+            query.User = req.query.id;
+        }
+        db.EmployerDates.findAll({
+            where: query
+        }).then(function (data) {
+            res.render("calendarView", data);
+        })
+    })
+
 };

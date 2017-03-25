@@ -39,15 +39,18 @@
             defaultValue: "3"
         },
         availability: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
+            type: DataTypes.DATEONLY,
+            allowNull: true,
         },
-        //REGISTRATION DATE SHOULD NOT BE REQUESTED FROM USER AT REGISTRATION
-        regDate: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: DataTypes.NOW
-        },
-    });
+        }, {
+            // We're saying that we want our User to have Events
+            classMethods: {
+                associate: function (models) {
+                    // Associating User with Events
+           
+                    User.hasMany(models.EmployerDates, {});
+                }
+            }
+        });
     return User;
 };
