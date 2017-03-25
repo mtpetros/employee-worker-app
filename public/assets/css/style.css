@@ -95,6 +95,10 @@ banner
     color: #EA6045;
 }
 
+.navbar-fixed-top {
+    background: rgba(0, 0, 0, 0.6);
+}
+
 .top-nav-collapse {
     padding: 0; 
     background: rgba(0, 0, 0, 0.6);
@@ -525,4 +529,8 @@ footer
     .banner-text h1{
         font-size: 24px;
     }
+}
+
+.jumbotron {
+    margin-top: 100px;
 }
