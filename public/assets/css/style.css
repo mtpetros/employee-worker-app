@@ -95,6 +95,10 @@ banner
     color: #EA6045;
 }
 
+.navbar-fixed-top {
+    background: rgba(0, 0, 0, 0.6);
+}
+
 .top-nav-collapse {
     padding: 0; 
     background: rgba(0, 0, 0, 0.6);
@@ -139,7 +143,7 @@ banner
     background-color: rgba(12, 184, 182) !important;
 }
 #banner{
-	background: url('../public/assets/img/bg-banner.jpg') no-repeat fixed;
+	background: url('/assets/img/bg-banner.jpg') no-repeat fixed;
 	background-size: cover;
 	min-height: 650px;
 	position: relative;
@@ -525,4 +529,8 @@ footer
     .banner-text h1{
         font-size: 24px;
     }
+}
+
+.jumbotron {
+    margin-top: 100px;
 }
