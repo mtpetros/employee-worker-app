@@ -9,9 +9,21 @@
 
 // Routes
 // =============================================================
-module.exports = function (app) {
+module.exports = function (app, passport) {
 
     // Each of the below routes just handles the HTML page that the user gets sent to.
+
+    app.post('/login', 
+        passport.authenticate('local', { failureRedirect: '/login' }),
+        function(req, res) {
+            res.redirect('/calendar');
+        });
+
+    app.get('/logout',
+      function(req, res){
+        req.logout();
+        res.redirect('/');
+      });
 
     // index route loads view.html
     app.get("/", function (req, res) {
@@ -23,8 +35,10 @@ module.exports = function (app) {
     });
 
 
-    app.get("/calendar", function (req, res) {
-        res.render("calendar");
+    app.get("/calendar",
+        //require('connect-ensure-login').ensureLoggedIn(),
+        function (req, res) {
+            res.render("calendar");
     });
 
     app.get("/login", function (req, res) {
