@@ -354,6 +354,29 @@ testimonial
     box-shadow: 3px -13px 5px 0px rgba(0, 0, 0, 0.18);
     border-left: 0;
 }
+
+/***************************************
+Login
+***************************************/
+#login{
+    background-color: #eee;
+    min-height: 500px;
+}
+
+#loginForm {
+    padding-top: 100px;
+}
+
+#inputEmail {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#inputPassword {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 /***************************************
 cta -2
 ***************************************/
