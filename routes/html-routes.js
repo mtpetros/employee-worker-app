@@ -15,7 +15,7 @@ module.exports = function (app) {
 
     // index route loads view.html
     app.get("/", function (req, res) {
-        res.render("calendar");
+        res.render("index");
     });
 
     app.get("/register", function (req, res) {
