@@ -8,10 +8,10 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
                   host     : 'localhost',
                   user     : 'root',
-                  password : 'root'
+                  password : '90Manoonie'
                 });
 
-connection.query('USE employerapp');
+connection.query('USE projectwork');
 
 
 // expose this function to our app using module.exports
