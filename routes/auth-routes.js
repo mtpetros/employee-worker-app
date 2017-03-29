@@ -1,10 +1,10 @@
 module.exports = function (app) {
 
 
-    app.post("/login", function (req, res) {
-        res.render("login");
-    });
-
-        // look at passport api!!!!!
+app.post('/login', 
+    passport.authenticate('local', { failureRedirect: '/login' }),
+    function(req, res) {
+        res.redirect('/calendar');
+  });
 
 };
