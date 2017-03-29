@@ -14,7 +14,7 @@ module.exports = function (app, passport) {
     // Each of the below routes just handles the HTML page that the user gets sent to.
 
     app.post('/login', 
-        passport.authenticate('local', { failureRedirect: '/login' }),
+        passport.authenticate('local-login', { failureRedirect: '/login' }),
         function(req, res) {
             res.redirect('/calendar');
         });
@@ -36,8 +36,9 @@ module.exports = function (app, passport) {
 
 
     app.get("/calendar",
-        //require('connect-ensure-login').ensureLoggedIn(),
+        require('connect-ensure-login').ensureLoggedIn(),
         function (req, res) {
+            console.log(req);
             res.render("calendar");
     });
 
