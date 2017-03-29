@@ -17,7 +17,7 @@ connection.query('USE employerapp');
 // expose this function to our app using module.exports
 module.exports = function passportConfig(passport) {
 
-    var newUserMysql = null;
+ 
 
     // =========================================================================
     // passport session setup ==================================================
