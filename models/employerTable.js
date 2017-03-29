@@ -1,10 +1,10 @@
 ﻿module.exports = function (sequelize, DataTypes) {
     var EmployerDates = sequelize.define("EmployerDates", {
-        name: {
+        title: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        availability: {
+        start: {
             type: DataTypes.DATEONLY,
             allowNull: true,
         },
