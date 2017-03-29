@@ -7,7 +7,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var passport = require("passport");
-var flash = require("connect-flash");
 var methodOverride = require("method-override");
 
 // Sets up the Express App
