@@ -36,7 +36,7 @@ module.exports = function (app, passport) {
 
 
     app.get("/calendar",
-        require('connect-ensure-login').ensureLoggedIn(),
+        // require('connect-ensure-login').ensureLoggedIn(),
         function (req, res) {
             console.log(req);
             res.render("calendar");
