@@ -7,36 +7,51 @@
 
 // Requiring our Todo model
 var db = require("../models");
+var passportConfig = require("../config/passport.js");
+
 
 // Routes
 // =============================================================
-module.exports = function (app) {
+module.exports = function (app, passport) { //import user id from passport!!!!! create conditional!!!
 
   
-    // POST route for saving a new registration
-    app.post("/register", function (req, res) {
-        console.log(req.body);
-        db.User.create({
-            name: req.body.name,
-            mode: req.body.mode,
-            phone: req.body.phone,
-            email: req.body.email,
-            street: req.body.street,
-            city: req.body.city,
-            zipcode: req.body.zipcode,
-            skill: req.body.skill,
-            availability: req.body.availability,
+    // PUT route for saving a new registration
+    app.put("/register",
+        passport.authenticate('local-signup'),
+        function (req, res) {
+            console.log("hey"+passportConfig.newUserId);
+            db.User.update({
+                name: req.body.name,
+                // password: req.body.password,
+                mode: req.body.mode,
+                phone: req.body.phone,
+                // email: req.body.email,
+                street: req.body.street,
+                city: req.body.city,
+                zipcode: req.body.zipcode,
+                skill: req.body.skill,
+                availability: req.body.availability,
 
-        }, {
-                timestamps: false
-            
+            },
+            {
+                where: {
+                    id: passportConfig.newUserId
+                }
+            },
+            {
+                    timestamps: false            
             
     }).then(function (data) {
-            console.log("+++++++++++++" + data);
-            var hbsObject = {
-                employer: data
-            };
-            res.render("registered", hbsObject);
+            db.User.findOne({
+                where: {
+                    id: passportConfig.newUserId
+                }
+            }).then(function (data) {
+                var hbsObject = {
+                    employer: data
+                };
+                res.render("registered", hbsObject);
+            });
         });        
     });
     // Displays employer's information to a "confirmation page"
