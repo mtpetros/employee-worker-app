@@ -32,7 +32,7 @@ module.exports = function passportConfig(passport) {
 
     // used to deserialize the user
     passport.deserializeUser(function(id, done) {
-        connection.query("select * from Users where id = "+id,function(err,rows){   
+        connection.query("select * from users where id = "+id,function(err,rows){   
             done(err, rows[0]);
         });
     });
@@ -54,7 +54,7 @@ module.exports = function passportConfig(passport) {
 
         // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
-        connection.query("select * from Users where email = '"+email+"'",function(err,rows){
+        connection.query("select * from users where email = '"+email+"'",function(err,rows){
             console.log(rows);
             console.log("above row object");
             if (err)
@@ -70,9 +70,11 @@ module.exports = function passportConfig(passport) {
                 newUserMysql.email    = email;
                 newUserMysql.password = password; // use the generateHash function in our user model
             
-                var insertQuery = "INSERT INTO Users ( email, password ) values ('" + email +"','"+ password +"')";
+                var insertQuery = "INSERT INTO users ( email, password ) values ('" + email +"','"+ password +"')";
                     console.log(insertQuery);
-                connection.query(insertQuery,function(err,rows){
+                connection.query({insertQuery,
+                    timeout: 40000},function(err,rows){
+                    console.log(rows);
                 newUserMysql.id = rows.insertId;
                 passportConfig.newUserId = newUserMysql.id;
 
@@ -99,7 +101,7 @@ module.exports = function passportConfig(passport) {
     },
     function(req, email, password, done) { // callback with email and password from our form
 
-         connection.query("SELECT * FROM `Users` WHERE `email` = '" + email + "'",function(err,rows){
+         connection.query("SELECT * FROM `users` WHERE `email` = '" + email + "'",function(err,rows){
             if (err)
                 return done(err);
              if (!rows.length) {
