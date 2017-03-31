@@ -59,7 +59,7 @@ module.exports = function (app, passport) { //import user id from passport!!!!! 
             }
         }).then(function (data) {
             if (!data) {
-                res.render("login", { error: { message: "username and/or password is incorrect!"}});
+                res.render("login", { error: { message: "Username and/or password is incorrect!"}});
             } else {
                 res.render("calendar");
             }
