@@ -7,7 +7,6 @@
 
 // Requiring our Todo model
 var db = require("../models");
-var passportConfig = require("../config/passport.js");
 
 
 // Routes
@@ -15,45 +14,58 @@ var passportConfig = require("../config/passport.js");
 module.exports = function (app, passport) { //import user id from passport!!!!! create conditional!!!
 
   
-    // PUT route for saving a new registration
-    app.put("/register",
-        passport.authenticate('local-signup'),
-        function (req, res) {
-            console.log("hey"+passportConfig.newUserId);
-            db.User.update({
-                name: req.body.name,
-                // password: req.body.password,
-                mode: req.body.mode,
-                phone: req.body.phone,
-                // email: req.body.email,
-                street: req.body.street,
-                city: req.body.city,
-                zipcode: req.body.zipcode,
-                skill: req.body.skill,
-                availability: req.body.availability,
+    // POST route for saving a new registration
+    app.post("/register", function (req, res) {
+        db.User.findAll({
+            where: {
+                email: req.body.email
+            }
+        }).then(function (data) {
+            if (Object.keys(data).length !== 0) {
+                res.render("registration", { error: { message: "Unfortunately, that email address is already in use. Please choose another." }});
+            } else {
+                db.User.create({
+                    name: req.body.name,
+                    password: req.body.password,
+                    mode: req.body.mode,
+                    phone: req.body.phone,
+                    email: req.body.email,
+                    street: req.body.street,
+                    city: req.body.city,
+                    zipcode: req.body.zipcode,
+                    skill: req.body.skill,
+                    availability: req.body.availability,
 
-            },
-            {
-                where: {
-                    id: passportConfig.newUserId
-                }
-            },
-            {
-                    timestamps: false            
-            
-    }).then(function (data) {
-            db.User.findOne({
-                where: {
-                    id: passportConfig.newUserId
-                }
-            }).then(function (data) {
-                var hbsObject = {
-                    employer: data
-                };
-                res.render("registered", hbsObject);
-            });
-        });        
+                },
+                {
+                        timestamps: false            
+                
+                }).then(function (data) {
+                    var hbsObject = {
+                        employer: data
+                    };
+                    res.render("registered", hbsObject);
+                });
+            }
+        });            
     });
+
+    //LOGIN
+    app.post('/login', function(req, res) {
+        db.User.findOne({
+            where: {
+                email: req.body.email,
+                password: req.body.password
+            }
+        }).then(function (data) {
+            if (!data) {
+                res.render("login", { error: { message: "username and/or password is incorrect!"}});
+            } else {
+                res.render("calendar");
+            }
+        })
+    });
+
     // Displays employer's information to a "confirmation page"
     app.get("/view/employers", function (req, res) {
         db.EmployerTable.findAll({}).then(function (data) {
