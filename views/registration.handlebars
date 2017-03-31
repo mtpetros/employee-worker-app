@@ -16,8 +16,11 @@
           </div>
 
           <hr>
+          {{#error}}
+            <div><p>{{message}}</p></div>
+          {{/error}}
             
-          <form action="/register?_method=PUT" method="POST" class="text-center hidden" id="employer-form">
+          <form action="/register" method="POST" class="text-center hidden" id="employer-form">
             <input type="hidden" name="mode" value="employer"> 
 
             <div class="form-group row">
