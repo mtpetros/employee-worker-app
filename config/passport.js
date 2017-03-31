@@ -6,9 +6,10 @@ var LocalStrategy   = require('passport-local').Strategy;
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-                  host     : 'localhost',
+                  host     : '127.0.0.1',
                   user     : 'root',
-                  password : '90Manoonie'
+                  password : '90Manoonie',
+                  database : 'projectwork'
                 });
 
 connection.query('USE projectwork');
