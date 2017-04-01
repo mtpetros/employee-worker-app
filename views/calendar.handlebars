@@ -11,20 +11,20 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/index.css">
-    <link rel='stylesheet' href='assets/css/fullcalendar.css' />
+	<link rel='stylesheet' href='assets/css/fullcalendar.css' />
 
-<script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/moment.min.js'></script>
-<script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery.min.js'></script>
-<script src="http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery-ui.custom.min.js"></script>
+	<script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/moment.min.js'></script>
+	<script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery.min.js'></script>
+	<script src="http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery-ui.custom.min.js"></script>
 
-    <!--<script src="assets/js/jquery.easing.min.js"></script>-->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <!--<script src="assets/js/custom.js"></script>-->
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/fullcalendar.min.js'></script>
-    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet" />-->
-    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.css" type="text/css" rel="stylesheet" />-->
-    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet" />
+	<!--<script src="assets/js/jquery.easing.min.js"></script>-->
+	<script src="assets/js/bootstrap.min.js"></script>
+	<!--<script src="assets/js/custom.js"></script>-->
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src='http://fullcalendar.io/js/fullcalendar-2.1.1/fullcalendar.min.js'></script>
+	<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet" />-->
+	<!--<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.css" type="text/css" rel="stylesheet" />-->
+	<link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet" />
 
 	<!-- =======================================================
         Theme Name: Medilab
@@ -33,168 +33,179 @@
         Author URL: https://bootstrapmade.com
     ======================================================= -->
 
-    <script type="text/javascript">
-		
+	<script type="text/javascript">
 		/*
 			jQuery document ready
 		*/
-		
-		$(document).ready(function() {
-		
-		    $('#calendar').fullCalendar({
-		       dayClick: function (date, jsEvent, view) {
 
-		            //alert('Clicked on: ' + date.format());
+		$(document).ready(function () {
 
-		            //alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+			$('#calendar').fullCalendar({
+				dayClick: function (date, jsEvent, view) {
 
-		            //alert('Current view: ' + view.name);
+					//alert('Clicked on: ' + date.format());
 
-		            // change the day's background color just for fun
-		           $(this).css('background-color', '#4480c9');
+					//alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
 
-		       },
-		    //    eventClick: function (calEvent, jsEvent, view) {
+					//alert('Current view: ' + view.name);
 
-		            //alert('Event: ' + calEvent.title);
-		            // alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-		            // alert('View: ' + view.name);
+					// change the day's background color just for fun
+					$(this).css('background-color', '#4480c9');
 
-		            // change the border color just for fun
-		           // $(this).css('border-color', 'red');
-
-		        //  },
-		        events: [
-				{
-				    title: 'John',
-				    start: '2017-03-28',
-				    description: 'Rating: 3 Stars'
 				},
-			    {
-			        title: 'David',
-			        start: '2017-03-26',
-			        description: 'Rating: 3 Stars'
-			    },
-			    {
-			        title: 'Bruno',
-			        start: '2017-03-26',
-			        description: 'Rating: 3 Stars'
-			    },
-			    {
-			        title: 'Eric',
-			        start: '2017-03-27',
-			        description: 'Rating: 3 Stars'
-			    },
-			    {
-			        title: 'Samuel',
-			        start: '2017-03-25',
-			        description: 'Rating: 3 Stars'
-			    },
-			    {
-			        title: 'Albert',
-			        start: '2017-03-24',
-			        description: 'Rating: 3 Stars'
-			    }
-				
-		        ],
-			header: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'month,basicWeek,listWeek'
-			},
-			eventRender: function (event, element) {
-			    element.attr('href', 'javascript:void(0);');
-			    element.click(function () {
-			        $("#startTime").html(moment(event.start).format('MMM Do h:mm A'));
-			        $("#eventInfo").html(event.description);
-			        $("#eventContent").dialog({ modal: true, title: event.title, width: 350 });
-			        $(".ui-dialog-titlebar-close").text("Close");
-			        $(".ui-dialog-titlebar-close").css("height", "26px");
-			        $(".ui-dialog-titlebar-close").css("padding", "0px");
-			        $(".ui-dialog-titlebar-close").css("width", "75px");
-			     
+				//    eventClick: function (calEvent, jsEvent, view) {
 
-			    });
-			},
-			defaultDate: '2017-03-12',
-			navLinks: true, // can click day/week names to navigate views
-			editable: true,
-			eventLimit: true, // allow "more" link when too many events
-			
+				//alert('Event: ' + calEvent.title);
+				// alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+				// alert('View: ' + view.name);
+
+				// change the border color just for fun
+				// $(this).css('border-color', 'red');
+
+				//  },
+				events: [
+					{
+						title: 'John',
+						start: '2017-03-28',
+						description: 'Rating: 3 Stars'
+					},
+					{
+						title: 'David',
+						start: '2017-03-26',
+						description: 'Rating: 3 Stars'
+					},
+					{
+						title: 'Bruno',
+						start: '2017-03-26',
+						description: 'Rating: 3 Stars'
+					},
+					{
+						title: 'Eric',
+						start: '2017-03-27',
+						description: 'Rating: 3 Stars'
+					},
+					{
+						title: 'Samuel',
+						start: '2017-03-25',
+						description: 'Rating: 3 Stars'
+					},
+					{
+						title: 'Albert',
+						start: '2017-03-24',
+						description: 'Rating: 3 Stars'
+					}
+
+				],
+				header: {
+					left: 'prev,next today',
+					center: 'title',
+					right: 'month,basicWeek,listWeek'
+				},
+				eventRender: function (event, element) {
+					element.attr('href', 'javascript:void(0);');
+					element.click(function () {
+						$("#startTime").html(moment(event.start).format('MMM Do h:mm A'));
+						$("#eventInfo").html(event.description);
+						$("#eventContent").dialog({ modal: true, title: event.title, width: 350 });
+						$(".ui-dialog-titlebar-close").text("Close");
+						$(".ui-dialog-titlebar-close").css("height", "26px");
+						$(".ui-dialog-titlebar-close").css("padding", "0px");
+						$(".ui-dialog-titlebar-close").css("width", "75px");
+
+
+					});
+				},
+				defaultDate: '2017-03-12',
+				navLinks: true, // can click day/week names to navigate views
+				editable: true,
+				eventLimit: true, // allow "more" link when too many events
+
+			});
+
 		});
-		
-	});
-
 	</script>
 </head>
 
 <section id="smallbanner" class="smallbanner">
-  <div>
-    <nav class="navbar navbar-default small-nav navbar-fixed-top">
-      <div class="container">
-        <div class="col-md-12">
+	<div>
+		<nav class="navbar navbar-default small-nav navbar-fixed-top">
+			<div class="container">
+				<div class="col-md-12">
 
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
-              <h2 class="orange">BADECO</h2>
-            </a>
-          </div>
+						<a class="navbar-brand" href="#">
+							<h2 class="orange">BADECO</h2>
+						</a>
+					</div>
 
-          <div class="collapse navbar-collapse navbar-right" id="myNavbar">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="/">Home</a></li>
-            </ul>
-          </div>
+					<div class="collapse navbar-collapse navbar-right" id="myNavbar">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="/">Home</a></li>
+						</ul>
+					</div>
 
-        </div>
-      </div>
-    </nav>
-  </div>
-</section>  <!-- nav bar -->
+				</div>
+			</div>
+		</nav>
+	</div>
+</section>
+<!-- nav bar -->
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
-   
+<div class="container">
+	<section>
+		<div class="col-md-12 col-sm-12">
+			<h2>Your Calendar</h2>
+			<hr class="botm-line">
+			<p>This is your calendar view! Select the days that you are available, then click the button below to add them! Thats it!
+				Your dates will now show up for everyone to see.</p>
+				<div class="col-md-12">
+              <button class="btn btn-primary btn-block" type="submit">Add Dates to Calendar</button>
+            </div>
+		</div>
+	</section>
+</div>
 
-<section id="service" class="section-padding paddingfix">
+	<section id="service" class="section-padding paddingfix">
 		<div class="container">
 			<div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <hr />
-                    <div id="calendar" class="btmspacelg"></div>
-                </div>
+				<div class="col-md-12 col-sm-12">
+					<hr />
+					<div id="calendar" class="btmspacelg"></div>
+				</div>
 			</div>
 		</div>
-</section>
+	</section>
 
-    <!--################## MODAL ###################-->
-    <div id="eventContent" title="Event Details" style="display:none;" style="background-color:red">
-        Date: <span id="startTime"></span><br>
-        <p id="eventInfo"></p>
-        <p><strong><a id="eventLink" href="" target="_blank">Read More</a></strong></p>
-    </div>
-    <!--################## MODAL ###################-->
+	<!--################## MODAL ###################-->
+	<div id="eventContent" title="Event Details" style="display:none;" style="background-color:red">
+		Date: <span id="startTime"></span><br>
+		<p id="eventInfo"></p>
+		<p><strong><a id="eventLink" href="" target="_blank">Read More</a></strong></p>
+	</div>
+	<!--################## MODAL ###################-->
 
- <footer id="footer" class="footer">
-  <div class="footer-line">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
+	<footer id="footer" class="footer">
+		<div class="footer-line">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
 
-          <div class="credits">
+						<div class="credits">
 
-            <p>Copyright &copy 2017 BADECO Inc.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+							<p>Copyright &copy 2017 BADECO Inc.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 </body>
 
